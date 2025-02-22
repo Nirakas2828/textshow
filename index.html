@@ -3,38 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>ข้อความกระพริบสำหรับไลฟ์</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       overflow: hidden;
       background: transparent;
+      font-family: 'Kanit', sans-serif;
     }
 
     .blinking-text {
       position: absolute;
       top: 50%;
-      left: 0;
-      width: 100%;
-      transform: translateY(-50%);
-      text-align: center;
-      font-size: 48px;
-      font-weight: bold;
-      color: #FF0000;
-      animation: blink 1s infinite, move 5s linear infinite alternate;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 15px 30px;
+      font-size: 52px;
+      font-weight: 700;
+      color: #00FFCC;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0, 102, 204, 0.85), rgba(0, 204, 153, 0.85));
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      animation: glow 1.5s infinite alternate, bounce 3s ease-in-out infinite;
     }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+    .highlight {
+      color: #FFFF00;
+      font-weight: 900;
+      font-size: 60px; /* ย้อนกลับไปยังขนาดตัวอักษรก่อนหน้านี้ */
+      text-shadow: 0 0 30px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 215, 0, 0.9), 0 0 50px rgba(255, 165, 0, 0.8);
     }
 
-    @keyframes move {
-      0% { transform: translate(-100%, -50%); }
-      100% { transform: translate(100%, -50%); }
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px rgba(0, 255, 204, 0.7), 0 0 20px rgba(0, 204, 153, 0.6), 0 0 30px rgba(0, 153, 102, 0.5);
+        opacity: 0.9;
+      }
+      100% {
+        text-shadow: 0 0 25px rgba(0, 255, 230, 1), 0 0 35px rgba(0, 204, 153, 0.9), 0 0 45px rgba(0, 153, 102, 0.8);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -53%) scale(1.1); }
     }
   </style>
 </head>
 <body>
-  <div class="blinking-text">🔥 แจ็คพอตแตก! หมุนเลย! 🔥</div>
+  <div class="blinking-text">💬 แอดไลน์ <span class="highlight">@EA168</span> 💬</div>
 </body>
 </html>
